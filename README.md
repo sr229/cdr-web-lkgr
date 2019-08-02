@@ -1,4 +1,4 @@
-# `code-server-lkgr`
+# `code-server-lkgr` [![Build Status](https://travis-ci.com/sr229/cdr-web-lkgr.svg?branch=master)](https://travis-ci.com/sr229/cdr-web-lkgr)
 
 This repository builds [code-server](https://github.com/cdr/code-server)'s `web` branch based on their LKGR (Last Known Good Revision). 
 

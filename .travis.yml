@@ -40,6 +40,7 @@ deploy:
     - release/*.tar.gz
     - release/*.zip
   skip_cleanup: true
+  overwrite: true
   on:
     tags: true
 
