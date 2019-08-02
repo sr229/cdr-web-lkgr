@@ -8,3 +8,7 @@ Releases are versioned as `lkgr-[VSCODE_VERSION]`. LKGR releases are kept built 
 merges into another VSCode version.
 
 Head over to releases and download the tarball. Keep in mind we're not building for MacOS and Windows at the moment.
+
+## Encountering Issues?
+
+Please do not report here. Because this is just a LKGR build (we build once every week) that is unmodified code-server codebase, kindly report to the code-server's [issues](https://github.com/cdr/code-server/issues) instead. 
