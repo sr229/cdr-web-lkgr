@@ -4,5 +4,7 @@ This repository builds [code-server](https://github.com/cdr/code-server)'s `web`
 
 ## Getting the Releases
 
-Right now we're not releasing anything in the CI. But when we do, pay attention to the `lkgr` tag.
+Releases are versioned as `lkgr-[VSCODE_VERSION]`. LKGR releases are kept built until the main tree
+merges into another VSCode version.
 
+Head over to releases and download the tarball. Keep in mind we're not building for MacOS and Windows at the moment.
