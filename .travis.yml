@@ -7,31 +7,24 @@ env:
 
 matrix:
    include:
-    #######################
-    #    Linux Matrix     #
-    #######################
+     - os: osx
+       env:
+          - VSCODE_VERSION="1.36.1" VERSION="lkgr"
      - os: linux
-       install:
-        - sudo apt update && sudo apt install -y libx11-dev libxkbfile-dev libsecret-1-dev realpath
-        - type -a realpath
-        - git clone https://github.com/cdr/code-server -b web --depth=50
-        - cd code-server && yarn
-       script:
-         - bash scripts/ci.bash
-       on_success:
-         - ls release/
-    #######################
-    #    Windows Matrix   #
-    #######################
-     - os: windows
-       install:
-        - npm i -g windows-build-tools --vs2017
-        - git clone https://github.com/cdr/code-server -b web --depth=50
-        - cd code-server && yarn
-       script:
-         - bash scripts/ci.bash
-       on_success:
-         - ls build
+       env:
+          - VSCODE_VERSION="1.36.1" VERSION="lkgr" TARGET="linux"
+     - os: linux
+       env:
+          - VSCODE_VERSION="1.36.1" VERSION="lkgr" TARGET="alpine"
+#     - os: windows
+#       install:
+#          - npm i -g windows-build-tools --vs2017
+      
+before_script:
+  - git clone https://github.com/cdr/code-server -b web --depth=50
+  - cd code-server && yarn
+script: 
+  - bash scripts/ci.bash
 
 notifications:
   email: false
@@ -49,3 +42,9 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
+
+cache:
+  yarn: true
+  timeout: 1000
+  directories:
+  - .cache
