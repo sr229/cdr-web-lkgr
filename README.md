@@ -11,4 +11,4 @@ Head over to releases and download the tarball. Keep in mind we're not building 
 
 ## Encountering Issues?
 
-Please do not report here. Because this is just a LKGR build (we build once every week) that is unmodified code-server codebase, kindly report to the code-server's [issues](https://github.com/cdr/code-server/issues) instead. 
+Please do not report here. Because this is just a LKGR build (fresh builds are done daily) that is unmodified code-server codebase, kindly report to the code-server's [issues](https://github.com/cdr/code-server/issues) instead. 
