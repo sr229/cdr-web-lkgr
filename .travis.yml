@@ -9,7 +9,7 @@ matrix:
    include:
      - os: osx
        env:
-          - VSCODE_VERSION="1.36.1" VERSION="lkgr"
+          - VSCODE_VERSION="1.36.1"
      - os: linux
        env:
           - VSCODE_VERSION="1.36.1" TARGET="linux"
@@ -21,9 +21,9 @@ matrix:
 #          - npm i -g windows-build-tools --vs2017
       
 before_script:
-  - export VERSION=$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)
   - git clone https://github.com/cdr/code-server -b web --depth=50
   - cd code-server && yarn
+  - export VERSION=$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)
 script: 
   - bash scripts/ci.bash
 
