@@ -12,19 +12,27 @@ matrix:
           - VSCODE_VERSION="1.36.1" VERSION="lkgr"
      - os: linux
        env:
-          - VSCODE_VERSION="1.36.1" VERSION="lkgr" TARGET="linux"
+          - VSCODE_VERSION="1.36.1" TARGET="linux"
      - os: linux
        env:
-          - VSCODE_VERSION="1.36.1" VERSION="lkgr" TARGET="alpine"
+          - VSCODE_VERSION="1.36.1" TARGET="alpine"
 #     - os: windows
 #       install:
 #          - npm i -g windows-build-tools --vs2017
       
 before_script:
+  - export VERSION=$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)
   - git clone https://github.com/cdr/code-server -b web --depth=50
   - cd code-server && yarn
 script: 
   - bash scripts/ci.bash
+
+before_deploy:
+  # Set up git user name and tag this commit
+  - git config --local user.name "Travis CI"
+  - git config --local user.email "support@travis-ci.com"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG -m "CDR-LKGR_$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 
 notifications:
   email: false
@@ -41,8 +49,6 @@ deploy:
     - release/*.zip
   skip_cleanup: true
   overwrite: true
-  on:
-    tags: true
 
 cache:
   yarn: true
