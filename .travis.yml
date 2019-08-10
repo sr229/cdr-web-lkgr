@@ -3,19 +3,19 @@ node_js:
   - "12"
 
 env:
-  - VSCODE_VERSION="1.36.1" VERSION="lkgr" TARGET="linux"
+  - VSCODE_VERSION="1.37.0" VERSION="lkgr" TARGET="linux"
 
 matrix:
    include:
      - os: osx
        env:
-          - VSCODE_VERSION="1.36.1"
+          - VSCODE_VERSION="1.37.0"
      - os: linux
        env:
-          - VSCODE_VERSION="1.36.1" TARGET="linux"
+          - VSCODE_VERSION="1.37.0" TARGET="linux"
      - os: linux
        env:
-          - VSCODE_VERSION="1.36.1" TARGET="alpine"
+          - VSCODE_VERSION="1.37.0" TARGET="alpine"
 #     - os: windows
 #       install:
 #          - npm i -g windows-build-tools --vs2017
