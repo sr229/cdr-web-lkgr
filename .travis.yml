@@ -3,20 +3,22 @@ node_js:
   - "12"
 
 env:
-  - VSCODE_VERSION="1.37.0" VERSION="lkgr" TARGET="linux"
+  - VERSION="CDR_LKGR_$VERSION" TARGET="linux"
 
 matrix:
    include:
      - os: osx
        env:
-          - VSCODE_VERSION="1.37.0"
+          - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161"
      - os: linux
        env:
-          - VSCODE_VERSION="1.37.0" TARGET="linux"
+          - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161" TARGET="linux"
      - os: linux
        env:
-          - VSCODE_VERSION="1.37.0" TARGET="alpine"
+          - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161" TARGET="alpine"
 #     - os: windows
+#       env:
+#          - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161" TARGET="windows"
 #       install:
 #          - npm i -g windows-build-tools --vs2017
       
@@ -32,7 +34,7 @@ before_deploy:
   - git config --local user.name "Travis CI"
   - git config --local user.email "support@travis-ci.com"
   - export TRAVIS_TAG=LKGR
-  - git tag $TRAVIS_TAG -m "CDR-LKGR_$TRAVIS_COMMIT"
+  - git tag $TRAVIS_TAG -m "CDR-LKGR_$VERSION"
 
 notifications:
   email: false
