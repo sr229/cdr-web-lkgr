@@ -3,7 +3,7 @@ node_js:
   - "12"
 
 env:
-  - VERSION="CDR_LKGR_$VERSION" TARGET="linux"
+  - VERSION="CDR_LKGR_$VERSION"
 
 matrix:
    include:
@@ -32,8 +32,8 @@ before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "Travis CI"
   - git config --local user.email "support@travis-ci.com"
-  - export TRAVIS_TAG=LKGR
-  - git tag $TRAVIS_TAG -m "CDR-LKGR_$VERSION"
+  - export TRAVIS_TAG=$VSCODE_VERSION
+  - git tag $TRAVIS_TAG -m "CDR_LKGR_$VERSION"
 
 notifications:
   email: false
@@ -49,6 +49,7 @@ deploy:
     - release/*.tar.gz
     - release/*.zip
   skip_cleanup: true
+  prerelease: true
   overwrite: true
   on:
     tags: false
