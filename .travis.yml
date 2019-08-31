@@ -25,7 +25,6 @@ matrix:
 before_script:
   - git clone https://github.com/cdr/code-server -b web --depth=50
   - cd code-server && yarn
-  - export VERSION=$TRAVIS_COMMIT
 script: 
   - bash scripts/ci.bash
 
