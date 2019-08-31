@@ -29,8 +29,8 @@ before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "Travis CI"
   - git config --local user.email "support@travis-ci.com"
-  - export TRAVIS_TAG=$VSCODE_VERSION
-  - git tag $TRAVIS_TAG -m "CDR_LKGR_$VERSION"
+  - export TRAVIS_TAG=$(echo $VSCODE_VERSION | awk '{print substr($0,1,10);exit}')
+  - git tag $TRAVIS_TAG -m "CDR_LKGR_$TRAVIS_TAG"
 
 notifications:
   email: false
