@@ -15,7 +15,7 @@ matrix:
           - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161" VERSION="lkgr" TARGET="alpine"
 #     - os: windows
 #       env:
-#          - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161" TARGET="windows"
+#          - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161"
 #       install:
 #          - npm i -g windows-build-tools --vs2017
       
@@ -31,6 +31,7 @@ before_deploy:
   - git config --local user.email "support@travis-ci.com"
   - export TRAVIS_TAG=$(echo $VSCODE_VERSION | awk '{print substr($0,1,10);exit}')
   - git tag $TRAVIS_TAG -m "CDR_LKGR_$TRAVIS_TAG"
+  - ls $(pwd)
 
 notifications:
   email: false
@@ -41,6 +42,7 @@ deploy:
     # DO NOT CHANGE THIS! Travis can replace this since it's a Environment Variable.
     # Head to Settings > Environment variables and set this.
     secure: $GITHUB_API_KEY
+  name: CDR_LKGR_$TRAVIS_TAG
   file_glob: true
   file:
     - release/*.tar.gz
@@ -55,4 +57,4 @@ cache:
   yarn: true
   timeout: 1000
   directories:
-  - .cache
+    - .cache
