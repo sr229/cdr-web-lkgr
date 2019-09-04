@@ -6,13 +6,13 @@ matrix:
    include:
      - os: osx
        env:
-          - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161" VERSION="lkgr"
+          - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161" MINIFY="true" PACKAGE="true" VERSION="lkgr"
      - os: linux
        env:
-          - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161" VERSION="lkgr" TARGET="linux"
+          - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161" MINIFY="true" PACKAGE="true" VERSION="lkgr" TARGET="linux"
      - os: linux
        env:
-          - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161" VERSION="lkgr" TARGET="alpine"
+          - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161" MINIFY="true" PACKAGE="true" VERSION="lkgr" TARGET="alpine"
 #     - os: windows
 #       env:
 #          - VSCODE_VERSION="20dd80d91a76cbe80fb1d1979c3a9f02d94ba161"
