@@ -20,7 +20,7 @@ matrix:
 #          - npm i -g windows-build-tools --vs2017
       
 before_script:
-  - git clone https://github.com/cdr/code-server -b web --depth=50
+  - git clone https://github.com/cdr/code-server -b master --depth=50
   - cd code-server && yarn
 script: 
   - bash scripts/ci.bash
