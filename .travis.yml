@@ -11,6 +11,11 @@ matrix:
        env:
           - VSCODE_VERSION="1.39.2" MINIFY="true" PACKAGE="true" VERSION="lkgr" TARGET="linux"
      - os: linux
+       dist: xenial
+       arch: arm64
+       env:
+          - VSCODE_VERSION="1.39.2" MINIFY="true" PACKAGE="true" VERSION="lkgr" TARGET="raspbian"
+     - os: linux
        env:
           - VSCODE_VERSION="1.39.2" MINIFY="true" PACKAGE="true" VERSION="lkgr" TARGET="alpine"
 #     - os: windows
