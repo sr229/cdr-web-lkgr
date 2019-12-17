@@ -13,7 +13,7 @@ matrix:
 #     - os: linux
 #       dist: xenial
 #       arch: arm64
-       env:
+#       env:
           - VSCODE_VERSION="1.41.0" MINIFY="true" PACKAGE="true" VERSION="lkgr" TARGET="raspbian"
      - os: linux
        env:
