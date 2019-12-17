@@ -6,21 +6,21 @@ matrix:
    include:
      - os: osx
        env:
-          - VSCODE_VERSION="1.39.2" MINIFY="true" PACKAGE="true" VERSION="lkgr"
+          - VSCODE_VERSION="1.41.0" MINIFY="true" PACKAGE="true" VERSION="lkgr"
      - os: linux
        env:
-          - VSCODE_VERSION="1.39.2" MINIFY="true" PACKAGE="true" VERSION="lkgr" TARGET="linux"
-     - os: linux
-       dist: xenial
-       arch: arm64
+          - VSCODE_VERSION="1.41.0" MINIFY="true" PACKAGE="true" VERSION="lkgr" TARGET="linux"
+#     - os: linux
+#       dist: xenial
+#       arch: arm64
        env:
-          - VSCODE_VERSION="1.39.2" MINIFY="true" PACKAGE="true" VERSION="lkgr" TARGET="raspbian"
+          - VSCODE_VERSION="1.41.0" MINIFY="true" PACKAGE="true" VERSION="lkgr" TARGET="raspbian"
      - os: linux
        env:
-          - VSCODE_VERSION="1.39.2" MINIFY="true" PACKAGE="true" VERSION="lkgr" TARGET="alpine"
+          - VSCODE_VERSION="1.41.0" MINIFY="true" PACKAGE="true" VERSION="lkgr" TARGET="alpine"
 #     - os: windows
 #       env:
-#          - VSCODE_VERSION="1.39.2"
+#          - VSCODE_VERSION="1.41.0"
 #       install:
 #          - npm i -g windows-build-tools --vs2017
       
