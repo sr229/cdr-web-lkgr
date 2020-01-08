@@ -15,6 +15,9 @@ steps:
      - cd code-server
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
+   environment:
+    GITHUB_TOKEN:
+      from_secret: gh-token
 
  - name: build-alpine
    image: node:12-alpine
@@ -24,6 +27,9 @@ steps:
      - cd code-server
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
+   environment:
+    GITHUB_TOKEN:
+      from_secret: gh-token
 
  - name: publish
    image: plugins/github-release
@@ -52,6 +58,9 @@ steps:
      - cd code-server
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
+  environment:
+    GITHUB_TOKEN:
+      from_secret: gh-token
 
  - name: build-alpine
    image: node:12-alpine
@@ -61,6 +70,9 @@ steps:
      - cd code-server
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
+   environment:
+    GITHUB_TOKEN:
+      from_secret: gh-token
 
  - name: publish
    image: plugins/github-release
@@ -90,8 +102,8 @@ steps:
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
    environment:
-      GITHUB_TOKEN: 
-         from_secret: gh-token
+    GITHUB_TOKEN:
+      from_secret: gh-token
 
  - name: build-alpine
    image: node:12-alpine
@@ -101,6 +113,9 @@ steps:
      - cd code-server
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
+   environment:
+    GITHUB_TOKEN:
+      from_secret: gh-token
 
  - name: publish
    image: plugins/github-release
