@@ -14,18 +14,18 @@ steps:
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn
-     - yarn build 1.41.1 .lkgr-$(uname -m)
-     - yarn binary 1.41.1 .lkgr-$(uname -m)
+     - yarn build 1.41.1 .lkgr
+     - yarn binary 1.41.1 .lkgr
 
  - name: build-alpine
    image: node:12-alpine
    commands:
-     - apk add libxkbfile-dev libsecret-dev
+     - apk add libxkbfile-dev libsecret-dev build-base git
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn
-     - yarn build 1.41.1 .lkgr-alpine-$(uname -m)
-     - yarn binary 1.41.1 .lkgr-alpine-$(uname -m)
+     - yarn build 1.41.1 .lkgr-alpine
+     - yarn binary 1.41.1 .lkgr-alpine
 
  - name: publish
    image: plugins/github-release
@@ -53,18 +53,18 @@ steps:
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn
-     - yarn build 1.41.1 .lkgr-$(uname -m)
-     - yarn binary 1.41.1 .lkgr-$(uname -m)
+     - yarn build 1.41.1 .lkgr
+     - yarn binary 1.41.1 .lkgr
 
  - name: build-alpine
    image: node:12-alpine
    commands:
-     - apk add libxkbfile-dev libsecret-dev
+     - apk add libxkbfile-dev libsecret-dev build-base git
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn
-     - yarn build 1.41.1 .lkgr-alpine-$(uname -m)
-     - yarn binary 1.41.1 .lkgr-alpine-$(uname -m)
+     - yarn build 1.41.1 .lkgr-alpine
+     - yarn binary 1.41.1 .lkgr-alpine
 
  - name: publish
    image: plugins/github-release
@@ -92,18 +92,18 @@ steps:
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn
-     - yarn build 1.41.1 .lkgr-$(uname -m)
-     - yarn binary 1.41.1 .lkgr-$(uname -m)
+     - yarn build 1.41.1 .lkgr
+     - yarn binary 1.41.1 .lkgr
 
  - name: build-alpine
    image: node:12-alpine
    commands:
-     - apk add libxkbfile-dev libsecret-dev
+     - apk add libxkbfile-dev libsecret-dev build-base git
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn
-     - yarn build 1.41.1 .lkgr-alpine-$(uname -m)
-     - yarn binary 1.41.1 .lkgr-alpine-$(uname -m)
+     - yarn build 1.41.1 .lkgr-alpine)
+     - yarn binary 1.41.1 .lkgr-alpine
 
  - name: publish
    image: plugins/github-release
