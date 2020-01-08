@@ -10,7 +10,7 @@ steps:
  - name: build-binary
    image: node:12
    commands:
-     - apt update && apt install -y build-essential git
+     - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn
@@ -39,7 +39,7 @@ steps:
  - name: build-binary
    image: node:12
    commands:
-     - apt update && apt install -y build-essential git
+     - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn
@@ -68,7 +68,7 @@ steps:
  - name: build-binary
    image: node:12
    commands:
-     - apt update && apt install -y build-essential git
+     - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn
