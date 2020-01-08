@@ -16,10 +16,10 @@ steps:
      - yarn
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
-    environment:
+   environment:
       GITHUB_TOKEN: 
          from_secret: gh-token
-         
+
  - name: build-alpine
    image: node:12-alpine
    commands:
@@ -29,7 +29,7 @@ steps:
      - yarn
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
-    environment:
+   environment:
       GITHUB_TOKEN: 
          from_secret: gh-token
 
@@ -61,7 +61,7 @@ steps:
      - yarn
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
-    environment:
+   environment:
       GITHUB_TOKEN: 
          from_secret: gh-token
 
@@ -74,7 +74,7 @@ steps:
      - yarn
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
-    environment:
+   environment:
       GITHUB_TOKEN: 
          from_secret: gh-token
 
@@ -106,7 +106,7 @@ steps:
      - yarn
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
-    environment:
+   environment:
       GITHUB_TOKEN: 
          from_secret: gh-token
 
