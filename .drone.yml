@@ -7,15 +7,25 @@ platform:
 
 steps:
 
- - name: build-binary
+ - name: build
    image: node:12
    commands:
      - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn
-     - yarn build 1.41.1 .lkgr
-     - yarn binary 1.41.1 .lkgr
+     - yarn build 1.41.1 .lkgr-$(uname -m)
+     - yarn binary 1.41.1 .lkgr-$(uname -m)
+
+ - name: build-alpine
+   image: node:12-alpine
+   commands:
+     - apk add libxkbfile-dev libsecret-dev
+     - git clone https://github.com/cdr/code-server
+     - cd code-server
+     - yarn
+     - yarn build 1.41.1 .lkgr-alpine-$(uname -m)
+     - yarn binary 1.41.1 .lkgr-alpine-$(uname -m)
 
  - name: publish
    image: plugins/github-release
@@ -36,15 +46,25 @@ platform:
 
 steps:
 
- - name: build-binary
+ - name: build
    image: node:12
    commands:
      - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn
-     - yarn build 1.41.1 .lkgr
-     - yarn binary 1.41.1 .lkgr
+     - yarn build 1.41.1 .lkgr-$(uname -m)
+     - yarn binary 1.41.1 .lkgr-$(uname -m)
+
+ - name: build-alpine
+   image: node:12-alpine
+   commands:
+     - apk add libxkbfile-dev libsecret-dev
+     - git clone https://github.com/cdr/code-server
+     - cd code-server
+     - yarn
+     - yarn build 1.41.1 .lkgr-alpine-$(uname -m)
+     - yarn binary 1.41.1 .lkgr-alpine-$(uname -m)
 
  - name: publish
    image: plugins/github-release
@@ -65,15 +85,25 @@ platform:
 
 steps:
 
- - name: build-binary
+ - name: build
    image: node:12
    commands:
      - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn
-     - yarn build 1.41.1 .lkgr
-     - yarn binary 1.41.1 .lkgr
+     - yarn build 1.41.1 .lkgr-$(uname -m)
+     - yarn binary 1.41.1 .lkgr-$(uname -m)
+
+ - name: build-alpine
+   image: node:12-alpine
+   commands:
+     - apk add libxkbfile-dev libsecret-dev
+     - git clone https://github.com/cdr/code-server
+     - cd code-server
+     - yarn
+     - yarn build 1.41.1 .lkgr-alpine-$(uname -m)
+     - yarn binary 1.41.1 .lkgr-alpine-$(uname -m)
 
  - name: publish
    image: plugins/github-release
