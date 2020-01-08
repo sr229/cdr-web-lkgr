@@ -58,7 +58,7 @@ steps:
      - cd code-server
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
-  environment:
+   environment:
     GITHUB_TOKEN:
       from_secret: gh-token
 
