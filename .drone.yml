@@ -23,7 +23,6 @@ steps:
    image: node:12-alpine
    commands:
      - apk add libxkbfile-dev libsecret-dev build-base git
-     - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
@@ -66,7 +65,6 @@ steps:
    image: node:12-alpine
    commands:
      - apk add libxkbfile-dev libsecret-dev build-base git
-     - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
@@ -109,7 +107,6 @@ steps:
    image: node:12-alpine
    commands:
      - apk add libxkbfile-dev libsecret-dev build-base git
-     - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
