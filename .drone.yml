@@ -13,12 +13,8 @@ steps:
      - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
-     - yarn
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
-   environment:
-      GITHUB_TOKEN: 
-         from_secret: gh-token
 
  - name: build-alpine
    image: node:12-alpine
@@ -26,12 +22,8 @@ steps:
      - apk add libxkbfile-dev libsecret-dev build-base git
      - git clone https://github.com/cdr/code-server
      - cd code-server
-     - yarn
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
-   environment:
-      GITHUB_TOKEN: 
-         from_secret: gh-token
 
  - name: publish
    image: plugins/github-release
@@ -58,12 +50,8 @@ steps:
      - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
-     - yarn
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
-   environment:
-      GITHUB_TOKEN: 
-         from_secret: gh-token
 
  - name: build-alpine
    image: node:12-alpine
@@ -71,12 +59,8 @@ steps:
      - apk add libxkbfile-dev libsecret-dev build-base git
      - git clone https://github.com/cdr/code-server
      - cd code-server
-     - yarn
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
-   environment:
-      GITHUB_TOKEN: 
-         from_secret: gh-token
 
  - name: publish
    image: plugins/github-release
@@ -103,7 +87,6 @@ steps:
      - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
-     - yarn
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
    environment:
@@ -116,12 +99,8 @@ steps:
      - apk add libxkbfile-dev libsecret-dev build-base git
      - git clone https://github.com/cdr/code-server
      - cd code-server
-     - yarn
-     - yarn build 1.41.1 .lkgr-alpine)
+     - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
-    environment:
-      GITHUB_TOKEN: 
-         from_secret: gh-token
 
  - name: publish
    image: plugins/github-release
