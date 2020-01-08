@@ -17,6 +17,15 @@ steps:
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
 
+ - name: publish
+   image: plugins/github-release
+   settings:
+     api_key:
+        from_secret: gh-token
+     files: dist/
+   when:
+     event: tag
+
 ---
 kind: pipeline
 type: docker
@@ -37,86 +46,19 @@ steps:
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
 
+ - name: publish
+   image: plugins/github-release
+   settings:
+     api_key:
+        from_secret: gh-token
+     files: dist/
+   when:
+     event: tag
+
 ---
 kind: pipeline
 type: docker
 name: build-arm
-
-platform:
-  arch: arm
-
-steps:
-
- - name: build-binary
-   image: node:12
-   commands:
-     - apt update && apt install -y build-essential git
-     - git clone https://github.com/cdr/code-server
-     - cd code-server
-     - yarn
-     - yarn build 1.41.1 .lkgr
-     - yarn binary 1.41.1 .lkgr
-
----
-kind: pipeline
-type: docker
-name: deploy-amd64
-
-platform:
-  arch: amd64
-
-steps:
-
- - name: build-binary
-   image: node:12
-   commands:
-     - apt update && apt install -y build-essential git
-     - git clone https://github.com/cdr/code-server
-     - cd code-server
-     - yarn
-     - yarn build 1.41.1 .lkgr
-     - yarn binary 1.41.1 .lkgr
-
- - name: publish
-   image: plugins/github-release
-   settings:
-     api_key:
-        from_secret: gh-token
-     files: dist/
-   when:
-     event: tag
----
-kind: pipeline
-type: docker
-name: deploy-arm64
-
-platform:
-  arch: arm64
-
-steps:
-
- - name: build-binary
-   image: node:12
-   commands:
-     - apt update && apt install -y build-essential git
-     - git clone https://github.com/cdr/code-server
-     - cd code-server
-     - yarn
-     - yarn build 1.41.1 .lkgr
-     - yarn binary 1.41.1 .lkgr
-
- - name: publish
-   image: plugins/github-release
-   settings:
-     api_key:
-        from_secret: gh-token
-     files: dist/
-   when:
-     event: tag
----
-kind: pipeline
-type: docker
-name: deploy-arm
 
 platform:
   arch: arm
