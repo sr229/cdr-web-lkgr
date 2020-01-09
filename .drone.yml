@@ -15,6 +15,7 @@ steps:
      - cd code-server
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
+     - yarn package 1.41.1 .lkgr
    environment:
     GITHUB_TOKEN:
       from_secret: gh-token
@@ -26,6 +27,7 @@ steps:
      - cd code-server
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
+     - yarn package 1.41.1 lkgr-alpine
    environment:
     GITHUB_TOKEN:
       from_secret: gh-token
@@ -35,7 +37,7 @@ steps:
    settings:
      api_key:
         from_secret: gh-token
-     files: dist/
+     files: release/*
    when:
      event: tag
 
@@ -57,6 +59,7 @@ steps:
      - cd code-server
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
+     - yarn package 1.41.1 .lkgr
    environment:
     GITHUB_TOKEN:
       from_secret: gh-token
@@ -68,6 +71,8 @@ steps:
      - cd code-server
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
+     - yarn package 1.41.1 .lkgr-alpine
+
    environment:
     GITHUB_TOKEN:
       from_secret: gh-token
@@ -77,7 +82,7 @@ steps:
    settings:
      api_key:
         from_secret: gh-token
-     files: dist/
+     files: release/*
    when:
      event: tag
 
@@ -99,6 +104,7 @@ steps:
      - cd code-server
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
+     - yarn package 1.41.1 .lkgr
    environment:
     GITHUB_TOKEN:
       from_secret: gh-token
@@ -110,6 +116,7 @@ steps:
      - cd code-server
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
+     - yarn package 1.41.1 .lkgr-alpine
    environment:
     GITHUB_TOKEN:
       from_secret: gh-token
@@ -119,6 +126,6 @@ steps:
    settings:
      api_key:
         from_secret: gh-token
-     files: dist/
+     files: release/*
    when:
      event: tag
