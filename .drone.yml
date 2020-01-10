@@ -10,7 +10,7 @@ steps:
  - name: build
    image: node:12
    commands:
-     - apt-get update && apt-get install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
+     - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn build 1.41.1 .lkgr
@@ -28,19 +28,18 @@ steps:
      - yarn build 1.41.1 .lkgr-alpine
      - yarn binary 1.41.1 .lkgr-alpine
      - yarn package 1.41.1 .lkgr-alpine
-     - ls release/
    environment:
     GITHUB_TOKEN:
       from_secret: gh-token
 
-- name: publish
-  image: plugins/github-release
-  settings:
-    api_key:
-      from_secret: gh-token
-    files: release/*.tar.gz
-  when:
-    event: tag
+ - name: publish
+   image: plugins/github-release
+   settings:
+     api_key:
+        from_secret: gh-token
+     files: release/*.tar.gz
+   when:
+     event: tag
 
 ---
 kind: pipeline
@@ -55,7 +54,7 @@ steps:
  - name: build
    image: node:12
    commands:
-     - apt-get update && apt-get install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
+     - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn build 1.41.1 .lkgr
@@ -77,14 +76,14 @@ steps:
     GITHUB_TOKEN:
       from_secret: gh-token
 
-- name: publish
-  image: plugins/github-release
-  settings:
-    api_key:
-      from_secret: gh-token
-    files: release/*.tar.gz
-  when:
-    event: tag
+ - name: publish
+   image: plugins/github-release
+   settings:
+     api_key:
+        from_secret: gh-token
+     files: release/*.tar.gz
+   when:
+     event: tag
 
 ---
 kind: pipeline
@@ -99,7 +98,7 @@ steps:
  - name: build
    image: node:12
    commands:
-     - apt-get update && apt-get install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
+     - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn build 1.41.1 .lkgr
@@ -121,11 +120,11 @@ steps:
     GITHUB_TOKEN:
       from_secret: gh-token
 
-- name: publish
-  image: plugins/github-release
-  settings:
-    api_key:
-      from_secret: gh-token
-    files: release/*.tar.gz
-  when:
-    event: tag
+ - name: publish
+   image: plugins/github-release
+   settings:
+     api_key:
+        from_secret: gh-token
+     files: release/*.tar.gz
+   when:
+     event: tag
