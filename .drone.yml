@@ -37,7 +37,7 @@ steps:
    settings:
      api_key:
         from_secret: gh-token
-     files: release/*.tar.gz
+     files: release/*
    when:
      event: tag
 
@@ -81,7 +81,7 @@ steps:
    settings:
      api_key:
         from_secret: gh-token
-     files: release/*.tar.gz
+     files: release/*
    when:
      event: tag
 
@@ -125,6 +125,6 @@ steps:
    settings:
      api_key:
         from_secret: gh-token
-     files: release/*.tar.gz
+     files: release/*
    when:
      event: tag
