@@ -33,14 +33,17 @@ steps:
       from_secret: gh-token
 
  - name: publish
-   image: plugins/github-release
-   settings:
-     api_key:
-        from_secret: gh-token
-     files:
-       - release/*.tar.gz
+   image: ubuntu
+   command:
+     - apt update && apt install -y wget
+     - wget -qO -  https://github.com/tcnksm/ghr/releases/download/v0.13.0/ghr_v0.13.0_linux_amd64.tar.gz | tar -xvz
+     - chmod -R 777 ghr_v0.13.0_linux_amd64/*
+     - ./ghr_v0.13.0_linux_amd64/ghr "$DRONE_TAG" ./release/*
+   environment:
+    GITHUB_TOKEN:
+      from_secret: gh-token
    when:
-     event: tag
+    event: tag
 
 ---
 kind: pipeline
@@ -78,14 +81,17 @@ steps:
       from_secret: gh-token
 
  - name: publish
-   image: plugins/github-release
-   settings:
-     api_key:
-        from_secret: gh-token
-     files:
-       - release/*.tar.gz
+   image: ubuntu
+   command:
+     - apt update && apt install -y wget
+     - wget -qO -  https://github.com/tcnksm/ghr/releases/download/v0.13.0/ghr_v0.13.0_linux_amd64.tar.gz | tar -xvz
+     - chmod -R 777 ghr_v0.13.0_linux_amd64/*
+     - ./ghr_v0.13.0_linux_amd64/ghr "$DRONE_TAG" ./release/*
+   environment:
+    GITHUB_TOKEN:
+      from_secret: gh-token
    when:
-     event: tag
+    event: tag
 
 ---
 kind: pipeline
@@ -123,11 +129,14 @@ steps:
       from_secret: gh-token
 
  - name: publish
-   image: plugins/github-release
-   settings:
-     api_key:
-        from_secret: gh-token
-     files:
-       - release/*.tar.gz
+   image: ubuntu
+   command:
+     - apt update && apt install -y wget
+     - wget -qO -  https://github.com/tcnksm/ghr/releases/download/v0.13.0/ghr_v0.13.0_linux_amd64.tar.gz | tar -xvz
+     - chmod -R 777 ghr_v0.13.0_linux_amd64/*
+     - ./ghr_v0.13.0_linux_amd64/ghr "$DRONE_TAG" ./release/*
+   environment:
+    GITHUB_TOKEN:
+      from_secret: gh-token
    when:
-     event: tag
+    event: tag
