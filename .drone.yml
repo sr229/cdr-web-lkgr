@@ -10,7 +10,7 @@ steps:
  - name: build
    image: node:12
    commands:
-     - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
+     - apt-get update && apt-get install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn build 1.41.1 .lkgr
@@ -58,7 +58,7 @@ steps:
  - name: build
    image: node:12
    commands:
-     - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
+     - apt-get update && apt-get install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn build 1.41.1 .lkgr
@@ -106,7 +106,7 @@ steps:
  - name: build
    image: node:12
    commands:
-     - apt update && apt install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
+     - apt-get update && apt-get install -y build-essential git libsecret-1-dev libx11-dev libxkbfile-dev
      - git clone https://github.com/cdr/code-server
      - cd code-server
      - yarn build 1.41.1 .lkgr
