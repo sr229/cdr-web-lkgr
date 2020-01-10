@@ -35,8 +35,9 @@ steps:
  - name: publish
    image: ruby
    commands:
+      - ls release/
       - gem install dpl --pre
-      - dpl releases --token $GITHUB_TOKEN --prerelease --overwrite --tag_name $DRONE_TAG --repo $DRONE_REPO --file release/*
+      - dpl releases --token $GITHUB_TOKEN --prerelease --overwrite --tag_name $DRONE_TAG --repo $DRONE_REPO --file release/*.tar.gz
    environment:
     GITHUB_TOKEN:
       from_secret: gh-token
