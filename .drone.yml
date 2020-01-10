@@ -33,13 +33,15 @@ steps:
       from_secret: gh-token
 
  - name: publish
-   image: plugins/github-release
-   settings:
-     api_key:
-        from_secret: gh-token
-     files: release/*
+   image: ruby
+   commands:
+      - gem install dpl --pre
+      - dpl releases --token $GITHUB_TOKEN --prerelease --overwrite --tag_name $DRONE_TAG --repo $DRONE_REPO --file release/*
+   environment:
+    GITHUB_TOKEN:
+      from_secret: gh-token
    when:
-     event: tag
+      event: tag
 
 ---
 kind: pipeline
@@ -77,13 +79,15 @@ steps:
       from_secret: gh-token
 
  - name: publish
-   image: plugins/github-release
-   settings:
-     api_key:
-        from_secret: gh-token
-     files: release/*
+   image: ruby
+   commands:
+      - gem install dpl --pre
+      - dpl releases --token $GITHUB_TOKEN --prerelease --overwrite --tag_name $DRONE_TAG --repo $DRONE_REPO --file release/*
+   environment:
+    GITHUB_TOKEN:
+      from_secret: gh-token
    when:
-     event: tag
+      event: tag
 
 ---
 kind: pipeline
@@ -121,10 +125,12 @@ steps:
       from_secret: gh-token
 
  - name: publish
-   image: plugins/github-release
-   settings:
-     api_key:
-        from_secret: gh-token
-     files: release/*
+   image: ruby
+   commands:
+      - gem install dpl --pre
+      - dpl releases --token $GITHUB_TOKEN --prerelease --overwrite --tag_name $DRONE_TAG --repo $DRONE_REPO --file release/*.tar.gz
+   environment:
+    GITHUB_TOKEN:
+      from_secret: gh-token
    when:
-     event: tag
+      event: tag
