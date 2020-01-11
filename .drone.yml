@@ -32,6 +32,13 @@ steps:
     GITHUB_TOKEN:
       from_secret: gh-token
 
+ - name: release-debug
+   image: alpine
+   commands:
+      - echo $(pwd)
+      - ls $(pwd)
+      - ls release/
+
  - name: publish
    image: ruby
    commands:
