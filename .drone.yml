@@ -32,19 +32,12 @@ steps:
     GITHUB_TOKEN:
       from_secret: gh-token
 
- - name: release-debug
-   image: alpine
-   commands:
-      - echo $(pwd)
-      - ls $(pwd)
-      - ls release/
-
  - name: publish
    image: ruby
    commands:
-      - ls release/
+      - cd code-server
       - gem install dpl --pre
-      - dpl releases --token $GITHUB_TOKEN --prerelease --overwrite --tag_name $DRONE_TAG --repo $DRONE_REPO --file release/*.tar.gz
+      - dpl releases --token $GITHUB_TOKEN --prerelease --overwrite --tag_name $DRONE_TAG --repo $DRONE_REPO --file release/*.tar.gz --overwrite 
    environment:
     GITHUB_TOKEN:
       from_secret: gh-token
@@ -89,13 +82,15 @@ steps:
  - name: publish
    image: ruby
    commands:
+      - cd code-server
       - gem install dpl --pre
-      - dpl releases --token $GITHUB_TOKEN --prerelease --overwrite --tag_name $DRONE_TAG --repo $DRONE_REPO --file release/*
+      - dpl releases --token $GITHUB_TOKEN --prerelease --overwrite --tag_name $DRONE_TAG --repo $DRONE_REPO --file release/*.tar.gz --overwrite 
    environment:
     GITHUB_TOKEN:
       from_secret: gh-token
    when:
       event: tag
+
 
 ---
 kind: pipeline
@@ -135,8 +130,9 @@ steps:
  - name: publish
    image: ruby
    commands:
+      - cd code-server
       - gem install dpl --pre
-      - dpl releases --token $GITHUB_TOKEN --prerelease --overwrite --tag_name $DRONE_TAG --repo $DRONE_REPO --file release/*.tar.gz
+      - dpl releases --token $GITHUB_TOKEN --prerelease --overwrite --tag_name $DRONE_TAG --repo $DRONE_REPO --file release/*.tar.gz --overwrite 
    environment:
     GITHUB_TOKEN:
       from_secret: gh-token
