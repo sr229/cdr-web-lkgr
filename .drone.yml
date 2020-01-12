@@ -61,6 +61,7 @@ steps:
      - yarn build 1.41.1 .lkgr
      - yarn binary 1.41.1 .lkgr
      - yarn package 1.41.1 .lkgr
+     - cp -vRf release ..
    environment:
     GITHUB_TOKEN:
       from_secret: gh-token
